@@ -1,0 +1,31 @@
+// flexbox
+
+@mixin flex($dir, $jc, $align_i, $align_c, $wrap) {
+  display: -webkit-flex;
+  display: flex;
+
+  @if ($dir != none) {
+    -webkit-flex-direction: $dir;
+    flex-direction: $dir;
+  }
+
+  @if ($jc != none) {
+    -webkit-justify-content: $jc;
+    justify-content: $jc;
+  }
+
+  @if ($align_i != none) {
+    -webkit-align-items: $align_i;
+    align-items: $align_i;
+  }
+
+  @if ($align_c != none) {
+    -webkit-align-content: $align_c;
+    align-content: $align_c;
+  }
+
+  @if ($wrap != none) {
+    -webkit-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+  }
+}

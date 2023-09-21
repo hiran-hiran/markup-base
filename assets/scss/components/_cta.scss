@@ -1,0 +1,84 @@
+@use "../global" as global;
+@use "../global/shortcut-functions" as f;
+
+.c_cta {
+  margin-top: 100px;
+  text-align: center;
+
+  .cta-text {
+    margin-top: 40px;
+    color: global.$green;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .cta-tel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    .cta-icon {
+      img {
+        display: block;
+        width: 70px;
+      }
+    }
+    .cta-desc {
+      margin-left: 10px;
+      line-height: 1.4;
+      .phone {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .time {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .c_btn01 {
+    margin: 30px auto 0;
+  }
+
+  .cta-leading {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  @include global.mq(sp) {
+    margin-top: f.sp(100);
+
+    .cta-text {
+      margin-top: f.sp(40);
+      font-size: f.sp(30);
+    }
+
+    .cta-tel {
+      margin-top: f.sp(10);
+      .cta-icon {
+        img {
+          width: f.sp(70);
+        }
+      }
+      .cta-desc {
+        margin-left: f.sp(10);
+        .phone {
+          font-size: f.sp(30);
+        }
+        .time {
+          font-size: f.sp(16);
+        }
+      }
+    }
+
+    .c_btn01 {
+      margin: f.sp(30 auto 0);
+    }
+
+    .cta-leading {
+      margin-top: f.sp(20);
+      font-size: f.sp(16);
+    }
+  }
+}

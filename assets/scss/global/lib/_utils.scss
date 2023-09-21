@@ -1,0 +1,62 @@
+// clearfix
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+// placeholderの色変更
+
+@mixin placeholder($color) {
+	&::placeholder {
+		color: $color;
+	}
+
+	// IE
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+
+	// Edge
+	&::-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+
+// スクロールバーのデザイン変更
+
+@mixin scrollbar($color, $width: 5px) {
+	&::-webkit-scrollbar {
+		width: $width;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $color;
+		border-radius: 3px;
+		box-shadow: none;
+	}
+	&::-webkit-scrollbar-track {
+		border: none;
+		border-radius: 3px;
+		//background: #e8e8e8;
+		//box-shadow: inset 0 0 2px #777;
+	}
+}
+
+
+// テキスト選択時のカラー変更
+
+@mixin selection($bgColor, $textColor) {
+  ::selection {
+    background: $bgColor;
+    color: $textColor;
+  }
+  ::-moz-selection {
+    background: $bgColor;
+    color: $textColor;
+  }
+}

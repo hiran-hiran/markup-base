@@ -1,0 +1,70 @@
+@use "../variables" as vars;
+@use "sass:map";
+
+// general media query mixin
+
+@mixin mq-min($min, $media: screen) {
+	@media #{$media} and (min-width: #{$min}px) {
+		@content;
+	}
+}
+
+@mixin mq-max($max, $media: screen) {
+	@media #{$media} and (max-width: #{$max}px) {
+		@content;
+	}
+}
+
+@mixin mq-minmax($min, $max, $media: screen) {
+	@media #{$media} and (min-width: #{$min}px) and (max-width: #{$max}px) {
+		@content;
+	}
+}
+
+
+// tagged media query mixin
+
+@mixin mq($id, $media: screen) {
+	$max-width: map.get(vars.$break-points, $id);
+
+	// min-widthを取得
+	$min-width: 0;
+	$prev-id: null;
+	@each $_id, $width in vars.$break-points {
+		@if $id == $_id and $prev-id != null {
+			$min-width: (map.get(vars.$break-points, $prev-id) + 1);
+		}
+		$prev-id: $_id;
+	}
+
+	@if $max-width == null {
+		@include mq-min($min-width, $media) {@content;}
+	} @else if $min-width == 0 {
+		@include mq-max($max-width, $media) {@content;}
+	} @else {
+		@include mq-minmax($min-width, $max-width, $media) {@content;}
+	}
+}
+
+
+// width calculator
+
+@function calc-vw-scalar($point, $v) {
+	$base-width: map.get(vars.$base-widths, $point);
+
+	@if $v == auto {@return auto;}
+	@return 100vw / $base-width * $v;
+}
+
+@function calc-vw($point, $v) {
+	@if type-of($v) == "list" {
+		$values: $v;
+		$ret: null;
+		@each $v in $values {
+			$ret: $ret calc-vw-scalar($point, $v);
+		}
+		@return $ret;
+	}
+
+	@return calc-vw-scalar($point, $v);
+}

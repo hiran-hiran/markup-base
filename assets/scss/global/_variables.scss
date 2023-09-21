@@ -1,0 +1,21 @@
+// コンテンツの基本サイズ
+// 各ブレイクポイントのmax-widthを定義
+$break-points: (
+  sp: 768,
+  tb: 1000,
+  pc: null,
+) !default;
+
+// vw変換時の基準のwidthを定義(デザインデータの横幅など)
+$base-widths: (
+  sp: 750,
+  pc: 1920,
+) !default;
+
+// 色定義
+$black: #393939;
+$dblack: #333;
+$green: #006250;
+$gray: #b3b3b3;
+$l-gray: #e8e8e8;
+$red: #ff0000;

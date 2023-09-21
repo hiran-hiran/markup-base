@@ -1,0 +1,37 @@
+@use "./index" as global;
+
+@function sp($v){
+  @return global.calc-vw(sp, $v);
+}
+
+@function sp1($v){
+  @return global.calc-vw(sp1, $v);
+}
+
+@function sp2($v){
+  @return global.calc-vw(sp2, $v);
+}
+
+@function tb($v){
+  @return global.calc-vw(tb, $v);
+}
+
+@function tb1($v){
+  @return global.calc-vw(tb1, $v);
+}
+
+@function tb2($v){
+  @return global.calc-vw(tb2, $v);
+}
+
+@function pc($v){
+  @return global.calc-vw(pc, $v);
+}
+
+@function pc1($v){
+  @return global.calc-vw(pc1, $v);
+}
+
+@function pc2($v){
+  @return global.calc-vw(pc2, $v);
+}

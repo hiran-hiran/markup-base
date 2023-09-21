@@ -1,0 +1,57 @@
+@use "ress";
+@use "responsive";
+@use "../global" as global;
+@use "../global/shortcut-functions" as f;
+
+@include global.selection(global.$green, white);
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: global.$font-family-default;
+  font-size: 16px;
+  line-height: 1.6;
+  color: global.$black;
+  @include global.mq(sp) {
+    font-size: f.sp(26);
+    &.is-opened {
+      overflow: hidden;
+    }
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.f-mont {
+  font-family: "Montserrat", global.$font-family-default;
+  font-weight: 100;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+main {
+  margin-top: 110px;
+  @include global.mq(sp) {
+    margin-top: f.sp(110);
+  }
+}
+
+img {
+  max-width: 100%;
+  @include global.mq(sp) {
+    max-width: inherit;
+    width: 100%;
+  }
+}

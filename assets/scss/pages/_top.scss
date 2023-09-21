@@ -1,0 +1,13 @@
+@use "../global" as global;
+@use "../global/shortcut-functions" as f;
+
+.p_top {
+  @include global.mq(sp) {
+    padding-left: f.sp(20);
+    padding-right: f.sp(20);
+  }
+
+  section {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,40 @@
+@use "../global" as global;
+@use "../global/shortcut-functions" as f;
+
+.c_pager {
+  position: relative;
+  margin-top: 120px;
+
+  .c_btn01 {
+    margin: 0 auto;
+  }
+
+  .next {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 230px);
+    transform: translate(-50%, -50%);
+  }
+
+  .prev {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 230px);
+    transform: translate(-50%, -50%);
+  }
+
+  @include global.mq(sp) {
+    margin-top: f.sp(120);
+
+    .next {
+      right: f.sp(60);
+      left: auto;
+      transform: translateY(-50%);
+    }
+
+    .prev {
+      left: f.sp(60);
+      transform: translateY(-50%);
+    }
+  }
+}

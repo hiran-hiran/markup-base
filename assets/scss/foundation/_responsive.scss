@@ -1,0 +1,13 @@
+@use "../global" as global;
+
+// display property
+
+@each $id, $width in global.$break-points {
+  @include global.mq($id) {
+    @each $_id, $_width in global.$break-points {
+      @if $id != $_id {
+        .#{$_id}:not(.#{$id}) {display: none;}
+      }
+    }
+  }
+}

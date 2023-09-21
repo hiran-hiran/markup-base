@@ -1,0 +1,154 @@
+@use "../global" as global;
+@use "../global/shortcut-functions" as f;
+
+.c_footer {
+  position: relative;
+  margin-top: 100px;
+  background: global.$dblack;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+
+  .c_btn-top {
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background: white;
+    color: global.$gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid global.$gray;
+    i {
+      font-size: 30px;
+    }
+    @include global.mq(sp) {
+      top: f.sp(-50);
+      right: f.sp(50);
+      width: f.sp(100);
+      height: f.sp(100);
+      i {
+        font-size: f.sp(30);
+      }
+    }
+  }
+
+  .footer-inner {
+    padding: 100px 0;
+  }
+
+  .footer-logo {
+    img {
+      width: 220px;
+    }
+  }
+
+  .footer-nav {
+    margin-top: 20px;
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+    li {
+      position: relative;
+      margin: 0 10px;
+
+      &.privacy {
+        margin: 0 10px 0 30px;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -20px;
+          width: 1px;
+          height: 100%;
+          background-color: white;
+        }
+      }
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .footer-sns {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    li {
+      margin: 0 15px;
+    }
+
+    img {
+      display: block;
+      width: 60px;
+    }
+  }
+
+  .footer-copy {
+    margin-top: 40px;
+    font-size: 10px;
+  }
+
+  @include global.mq(sp) {
+    margin-top: f.sp(100);
+
+    .footer-inner {
+      padding: f.sp(100 0);
+    }
+
+    .footer-logo {
+      img {
+        width: f.sp(220);
+      }
+    }
+
+    .footer-nav {
+      margin-top: f.sp(30);
+      ul {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: f.sp(0 150);
+      }
+      li {
+        width: 50%;
+        margin: f.sp(20 0 0);
+        font-size: f.sp(22);
+        text-align: left;
+
+        &.privacy {
+          margin: f.sp(10 0 0);
+          &::after {
+            content: none;
+          }
+        }
+
+        &:nth-child(even) {
+          text-align: right;
+        }
+      }
+    }
+
+    .footer-sns {
+      margin-top: f.sp(30);
+
+      li {
+        margin: f.sp(0 15);
+      }
+
+      img {
+        width: f.sp(80);
+      }
+    }
+
+    .footer-copy {
+      margin-top: f.sp(40);
+      font-size: f.sp(16);
+    }
+  }
+}
