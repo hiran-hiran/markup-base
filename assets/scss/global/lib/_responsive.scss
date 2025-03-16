@@ -1,5 +1,6 @@
 @use "../variables" as vars;
 @use "sass:map";
+@use "sass:meta";
 
 // general media query mixin
 
@@ -53,11 +54,11 @@
 	$base-width: map.get(vars.$base-widths, $point);
 
 	@if $v == auto {@return auto;}
-	@return 100vw / $base-width * $v;
+	@return calc(100vw / $base-width) * $v;
 }
 
 @function calc-vw($point, $v) {
-	@if type-of($v) == "list" {
+	@if meta.type-of($v) == "list" {
 		$values: $v;
 		$ret: null;
 		@each $v in $values {
